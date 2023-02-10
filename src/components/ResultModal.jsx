@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import { actions } from "../store/playerSlice";
 import PlayerIconFilled from "./PlayerIcon";
 
 const ResultModal = () => {
   const winner = useSelector((state) => state.gameSlice.winner);
+  const currentPlayer = useSelector((state) => state.playerSlice.player);
+  const dispatch = useDispatch();
   const className = winner === -1 ? `modal` : `modal visible`;
 
   return (
@@ -15,8 +18,8 @@ const ResultModal = () => {
           takes the round
         </div>
         <div className="modal--banner__footer">
-          <button className="button bg__tertiary">quit</button>
-          <button className="button bg__primary">next round</button>
+          <button className="button tertiary">quit</button>
+          <button className="button primary">next round</button>
         </div>
       </div>
     </div>

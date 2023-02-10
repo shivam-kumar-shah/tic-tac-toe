@@ -1,3 +1,5 @@
+@import "../abstracts/variables";
+
 * {
   margin: 0px;
   padding: 0px;
@@ -7,11 +9,12 @@
 html {
   font-size: 62.5%;
   font-family: "Poppins", sans-serif;
+  color: $color-font-primary;
+  background-color: $color-background-primary;
 }
 
 #root {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
 }
