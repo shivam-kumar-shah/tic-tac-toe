@@ -1,0 +1,1 @@
+.game-board{display:grid;max-height:60%;aspect-ratio:1/1;grid-template-columns:repeat(3, 1fr);gap:1rem}.game-board--tile{border:1px solid green;aspect-ratio:1/1;border-radius:2rem}.hud{width:100%}.modal{display:none}.player--logo{width:100%}*{margin:0px;padding:0px;box-sizing:border-box}html{font-size:62.5%;font-family:"Poppins",sans-serif}

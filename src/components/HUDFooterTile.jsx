@@ -1,8 +1,8 @@
 const HUDFooterTile = (props) => {
   return (
     <div className={props.className}>
-      {props.subtitle}
-      {props.title}
+      <span className="subtitle">{props.subtitle}</span>
+      <span className="title">{props.title}</span>
     </div>
   );
 };

@@ -1,12 +1,14 @@
 .game-board {
   display: grid;
-  max-height: 60%;
+  height: 60vh;
   aspect-ratio: 1/1;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 1rem;
+  overflow: hidden;
   &--tile {
     border: 1px solid green;
-    aspect-ratio: 1/1;
     border-radius: 2rem;
+    padding: 2rem;
   }
 }

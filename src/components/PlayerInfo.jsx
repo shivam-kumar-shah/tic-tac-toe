@@ -8,6 +8,7 @@ const PlayerInfo = () => {
   return (
     <div className="hud--header__player-info">
       <PlayerIconFilled player={player} />
+      turn
     </div>
   );
 };
