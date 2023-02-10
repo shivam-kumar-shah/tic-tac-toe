@@ -21,7 +21,7 @@ const playerSlice = createSlice({
             if (result === "win") {
                 state.history.winCount += 1;
             }
-            else if (result == + "lose") {
+            else if (result === "lose") {
                 state.history.loseCount += 1;
             }
             else {

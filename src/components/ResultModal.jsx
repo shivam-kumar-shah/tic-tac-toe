@@ -1,10 +1,11 @@
-import { createSelector } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 import PlayerIconFilled from "./PlayerIcon";
 
 const ResultModal = () => {
-  const winner = createSelector((state) => state.gameSlice.winner);
+  const winner = useSelector((state) => state.gameSlice.winner);
   const className = winner === -1 ? `modal` : `modal visible`;
+
   return (
     <div className={className}>
       <div className="modal--banner">

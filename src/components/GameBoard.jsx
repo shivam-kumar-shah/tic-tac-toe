@@ -22,8 +22,6 @@ const GameBoard = () => {
           key={index}
         />
       ))}
-      Current Player : {Number(currentPlayer)}
-      Current Winner : {currentWinner}
     </div>
   );
 };

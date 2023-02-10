@@ -22,8 +22,9 @@ const gameSlice = createSlice({
   name: "gameSlice",
   reducers: {
     setGameBit(state, action) {
+      if (state.currentState[action.payload] != -1) return;
       const newState = state.currentState.map((item, index) => {
-        if (index == action.payload) {
+        if (index === action.payload) {
           return Number(state.currentPlayer);
         }
         return item;
