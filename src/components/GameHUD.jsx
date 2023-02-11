@@ -4,11 +4,15 @@ import HUDFooterTile from "./HUDFooterTile";
 
 import logo from "../assets/images/logo.svg";
 import restartLogo from "../assets/images/icon-restart.svg";
-import { useSelector } from "react-redux";
+
+import { actions } from "../store/gameSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const GameHUD = () => {
   const currentPlayer = useSelector((state) => state.gameSlice.currentPlayer);
   const history = useSelector((state) => state.playerSlice.history);
+
+  const dispatch = useDispatch();
   return (
     <section className="hud">
       <div className="hud--header">
@@ -16,7 +20,12 @@ const GameHUD = () => {
           <img src={logo} alt="logo" />
         </div>
         <PlayerInfo />
-        <div className="hud--header__reset">
+        <div
+          className="hud--header__reset"
+          onClick={() => {
+            dispatch(actions.resetState());
+          }}
+        >
           <img src={restartLogo} alt="restart" />
         </div>
       </div>

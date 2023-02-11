@@ -43,6 +43,13 @@ const gameSlice = createSlice({
         winner: newWinner,
       };
     },
+    resetState(state) {
+      return {
+        currentState: initialState.currentState,
+        winner: initialState.winner,
+        currentPlayer: state.currentPlayer,
+      };
+    },
   },
 });
 
