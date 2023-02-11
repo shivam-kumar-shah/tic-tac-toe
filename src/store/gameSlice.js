@@ -33,10 +33,12 @@ const gameSlice = createSlice({
       let newWinner = -1;
       for (let i = 0; i < resultLogic.length; i++) {
         const [a, b, c] = resultLogic[i];
-        if (newState[a] === newState[b] && newState[b] === newState[c]) {
+        if ((newState[a] === newState[b]) && (newState[b] === newState[c])) {
           newWinner = newState[a];
+          break;
         }
       }
+      console.log(newWinner);
       return {
         currentPlayer: !state.currentPlayer,
         currentState: newState,
