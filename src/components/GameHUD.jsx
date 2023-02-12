@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const GameHUD = () => {
   const currentPlayer = useSelector((state) => state.gameSlice.currentPlayer);
-  const history = useSelector((state) => state.playerSlice.history);
+  const history = useSelector((state) => state.gameSlice.history);
 
   const dispatch = useDispatch();
   return (

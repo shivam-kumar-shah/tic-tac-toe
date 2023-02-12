@@ -4,6 +4,12 @@ const initialState = {
   currentState: new Array(9).fill(-1),
   currentPlayer: 0,
   winner: -1,
+  player: 0,
+  history: {
+    winCount: 0,
+    loseCount: 0,
+    ties: 0,
+  },
 };
 
 const resultLogic = [
@@ -33,16 +39,28 @@ const gameSlice = createSlice({
       let newWinner = -1;
       for (let i = 0; i < resultLogic.length; i++) {
         const [a, b, c] = resultLogic[i];
-        if ((newState[a] === newState[b]) && (newState[b] === newState[c])) {
+        if (newState[a] === newState[b] && newState[b] === newState[c]) {
           newWinner = newState[a];
           break;
         }
       }
-      console.log(newWinner);
+      const isTie = newState.findIndex((item) => item === -1) === -1;
       return {
         currentPlayer: !state.currentPlayer,
         currentState: newState,
         winner: newWinner,
+        player: state.player,
+        history: {
+          winCount:
+            newWinner !== -1 && newWinner === state.player
+              ? state.history.winCount + 1
+              : state.history.winCount,
+          loseCount:
+            newWinner !== -1 && newWinner !== state.player
+              ? state.history.loseCount + 1
+              : state.history.loseCount,
+          ties: isTie ? state.history.ties + 1 : state.history.ties,
+        },
       };
     },
     resetState(state) {
@@ -50,6 +68,15 @@ const gameSlice = createSlice({
         currentState: initialState.currentState,
         winner: initialState.winner,
         currentPlayer: state.currentPlayer,
+        player: state.player,
+        history: state.history,
+      };
+    },
+    resetHistory(state, action) {
+      state.history = {
+        winCount: 0,
+        loseCount: 0,
+        ties: 0,
       };
     },
   },

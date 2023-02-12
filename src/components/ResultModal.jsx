@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { actions as playerActions } from "../store/playerSlice";
 import { actions as gameActions } from "../store/gameSlice";
 import PlayerIconFilled from "./PlayerIcon";
 
 const ResultModal = () => {
   const winner = useSelector((state) => state.gameSlice.winner);
-  const currentPlayer = useSelector((state) => state.playerSlice.player);
   const dispatch = useDispatch();
   const className = winner === -1 ? `modal` : `modal visible`;
   const modalBannerClasses =
@@ -24,7 +22,7 @@ const ResultModal = () => {
           <button
             className="button tertiary"
             onClick={() => {
-              dispatch(playerActions.resetHistory());
+              dispatch(gameActions.resetHistory());
               dispatch(gameActions.resetState());
             }}
           >
